@@ -1,0 +1,34 @@
+[versions]
+gradle = "8.0.2"
+kotlin = "1.8.20"
+kotlin-ktx = "1.8.0"
+compose-bom = "2023.06.01"
+compose-compiler = "1.4.6"
+compose-activity = "1.5.1"
+lifecycler = "2.6.1"
+
+[libraries]
+androidx-corektx = { group = "androidx.core", name = "core-ktx", version.ref = "kotlin-ktx" }
+androidx-lifecyleRuntimeKtx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycler" }
+compose-activity={group="androidx.activity",name="activity-compose", version.ref="compose-activity"}
+compose-bom = { group = "androidx.compose", name = "compose-bom", version = "2023.06.01" }
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+compose-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+compose-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+compose-uiTestManifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+kotlin-bom = { group = "org.jetbrains.kotlin", name = "kotlin-bom", version.ref = "kotlin-ktx" }
+
+# Dependencies of the included build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "gradle" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+
+[bundles]
+compose = ["compose-ui", "compose-graphics", "compose-tooling-preview", "compose-material3", "compose-activity"]
+composeDebug=["compose-tooling", "compose-uiTestManifest"]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "gradle" }
+android-lib = { id = "com.android.library", version.ref = "gradle" }
+android-kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
